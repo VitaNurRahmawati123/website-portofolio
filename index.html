@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome My Project</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+  <style>
+
+    body, html {
+      height: 100%;
+      width: 100%;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .word-hover:hover {
+      transform: scale(1.2);
+      text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8);
+    }
+
+    .parallax {
+      transition: transform 0.1s ease-out;
+    }
+
+    .img-hover:hover {
+      transform: scale(1.1);
+      transition: all 0.5s ease;
+    }
+
+    /* Loading fullscreen */
+    #loadingScreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at bottom left, #6a00f4, #240046);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+       color: white;
+      text-align: center;
+      transition: filter 2s ease;
+      position: relative;
+      z-index: 9999;
+    }
+
+    #loadingScreen.blur {
+      filter: blur(15px);
+    }
+
+    #loadingScreen p {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      opacity: 0;
+      transform: translate(-100px, 100px);
+      animation: slideUpFade 1s ease forwards 0.5s;
+    }
+
+    h1 span {
+      color: #a855f7;
+    }
+
+     .icons {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards 1s;
+    }
+
+    .icons i {
+      font-size: 1.5rem;
+      background: rgba(255,255,255,0.1);
+      padding: 0.7rem;
+      border-radius: 50%;
+      animation: bounce 1.5s infinite ease-in-out;
+    }
+
+    .icons i:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .icons i:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    .footer {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards 1.5s;
+    }
+
+
+    /* Konten utama disembunyikan dulu */
+    #mainContent {
+      display: none;
+      padding: 20px;
+    }
+
+    @keyframes slideUpFade {
+      to {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-purple-800 to-purple-900 min-h-screen overflow-x-hidden">
+  <div id="loadingScreen" aria-label="Loading animasi mawar">
+    <dotlottie-player src="https://lottie.host/bb93da94-8af6-4dca-8506-ebb108bb29bf/1mO8dog4aY.lottie"
+      background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+    <h1 class="text-3xl md:text-3xl font-bold mb-4 leading-tight">Welcome To My <br><span>Portfolio Website</span></h1>
+  </div>
+
+  <div id="mainContent">
+    <!-- Navbar -->
+    <nav id="#Home" class="w-full flex items-center justify-between px-8 py-4 bg-purple-700 text-white fixed top-0 left-0 z-50 shadow-md">
+      <div class="flex items-center space-x-2">
+        <img src="taa.jpg" alt="Logo" class="w-10 h-10 rounded-full">
+        <span class="font-bold text-xl">vitaa</span>
+      </div>
+      <div class="flex space-x-8 text-lg font-semibold ml-24">
+        <a href="#Home" class="hover:text-pink-300 transition">Home</a>
+        <a href="#About" class="hover:text-pink-300 transition">About</a>
+        <a href="#Skills" class="hover:text-pink-300 transition">Skills</a>
+        <a href="#Gallery" class="hover:text-pink-300 transition">Gallery</a>
+        <a href="#Testimonials" class="hover:text-pink-300 transition">Testimonials</a>
+        <a href="#Contact" class="hover:text-pink-300 transition">Contact</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="flex flex-col md:flex-row items-center justify-center gap-12 pt-32 px-8 relative">
+      <div class="text-center md:text-left">
+        <h1 class="text-white text-5xl md:text-6xl font-bold mb-4 leading-tight">
+          <span class="inline-block text-white transition-transform duration-300 word-hover">Welcome</span><br>
+          <span class="inline-block transition-transform duration-300 word-hover text-pink-400">My Portfolio</span>
+        </h1>
+        <p class="text-gray-300 text-xl">Website Developer and Software Engineer.</p>
+      </div>
+
+      <dotlottie-player src="https://lottie.host/1a0235a3-fcb3-4e7a-9322-efe42bea2959/qUaHXobtDf.lottie"
+        background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+    </section>
+  
+    <!-- About Section -->
+    <section id="About" class="flex flex-col md:flex-row mt-40 items-center justify-center gap-12 px-8 py-16"
+      data-aos="fade-up">
+      <div class="w-72 h-96 overflow-hidden rounded-2xl shadow-lg">
+        <img src="mee.png" alt="Profile Photo" class="object-cover w-full h-full img-hover" />
+      </div>
+
+      <div class="max-w-lg text-white">
+        <h2 class="text-4xl font-bold mb-4">About <span class="text-pink-400">Me</span></h2>
+        <p class="text-gray-300 mb-6">
+          I'm Vita Nur Rahmawati, a website developer and software engineer with experience in both frontend and backend
+          development.
+          I enjoy taking on new challenges and am always committed to delivering the best results in every project I
+          work on.
+        </p>
+        <a href="about.html">
+          <button
+            class="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white font-semibold shadow-lg hover:scale-110 transition transform duration-300">
+            See in more Detail
+          </button>
+        </a>
+      </div>
+    </section>
+    <br>
+    <br>
+    <section id="Skills" class="w-full max-w-3xl text-center mx-auto space-y-12 py-16">
+      <!-- Title -->
+      <h2 class="text-4xl font-bold text-white">
+        My <span class="text-pink-400">Skills</span>
+      </h2>
+
+      <!-- Skills -->
+      <div class="space-y-10">
+        <!-- Skill 1 -->
+        <div class="space-y-3">
+          <div class="flex justify-between text-white font-semibold px-2">
+            <span>HTML</span>
+            <span>90%</span>
+          </div>
+          <div class="w-full bg-purple-600 rounded-full h-4 overflow-hidden">
+            <div
+              class="bg-gradient-to-r from-pink-400 to-purple-400 h-4 rounded-full animate-[progress_2s_ease-out_forwards]"
+              style="width:90%"></div>
+          </div>
+        </div>
+
+        <!-- Skill 2 -->
+        <div class="space-y-3">
+          <div class="flex justify-between text-white font-semibold px-2">
+            <span>CSS</span>
+            <span>70%</span>
+          </div>
+          <div class="w-full bg-purple-600 rounded-full h-4 overflow-hidden">
+            <div
+              class="bg-gradient-to-r from-pink-400 to-purple-400 h-4 rounded-full animate-[progress_2s_ease-out_forwards]"
+              style="width:70%"></div>
+          </div>
+        </div>
+
+        <!-- Skill 3 -->
+        <div class="space-y-3">
+          <div class="flex justify-between text-white font-semibold px-2">
+            <span>JavaScript</span>
+            <span>40%</span>
+          </div>
+          <div class="w-full bg-purple-600 rounded-full h-4 overflow-hidden">
+            <div
+              class="bg-gradient-to-r from-pink-400 to-purple-400 h-4 rounded-full animate-[progress_2s_ease-out_forwards]"
+              style="width:40%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <br>
+    <br>
+    <section id="Gallery" class="w-full max-w-6xl mx-auto items-center">
+      <!-- Title -->
+      <h2 class="text-4xl font-bold text-center text-white mb-10">
+        My Project
+      </h2>
+
+      <!-- Project Container -->
+      <div
+        class="flex space-x-6 overflow-x-auto scrollbar-thin scrollbar-thumb-purple-500 scrollbar-track-purple-300 py-5 px-2">
+
+        <!-- Project Item 1 -->
+        <div
+          class="min-w-[250px] bg-purple-700 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="project 1.png" alt="Gallery 1"
+            class="w-full h-40 object-cover hover:scale-110 transition-transform duration-500">
+          <div class="p-4 text-white">
+            <p class="mb-4">I created this project to introduce the history of the islands.</p>
+            <a href="proyekkk/websitttttttt.html">
+              <button
+                class="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white font-semibold shadow-lg hover:scale-110 transition-transform duration-300">
+                See Detail
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project Item 2 -->
+        <div
+          class="min-w-[250px] bg-purple-700 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="project 2.png" alt="Gallery 2"
+            class="w-full h-40 object-cover hover:scale-110 transition-transform duration-500">
+          <div class="p-4 text-white">
+            <p class="mb-4">A travel website to share experiences and destinations.</p>
+            <a href="PPLG TGS 2/index2.html">
+              <button
+                class="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white font-semibold shadow-lg hover:scale-110 transition-transform duration-300">
+                See Detail
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project Item 3 -->
+        <div
+          class="min-w-[250px] bg-purple-700 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="project 3.png" alt="Gallery 3"
+            class="w-full h-40 object-cover hover:scale-110 transition-transform duration-500">
+          <div class="p-4 text-white">
+            <p class="mb-4">E-Commerce platform for easy shopping experience.</p>
+            <a href="bosstrep.TGS 2/index.html">
+              <button
+                class="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white font-semibold shadow-lg hover:scale-110 transition-transform duration-300">
+                See Detail
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project Item 4 -->
+        <div
+          class="min-w-[250px] bg-purple-700 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="project 4.png" alt="Gallery 4"
+            class="w-full h-40 object-cover hover:scale-110 transition-transform duration-500">
+          <div class="p-4 text-white">
+            <p class="mb-4">Health clinic website for online consultations.</p>
+            <a href="bootstrep.TGS3/index.html">
+              <button
+                class="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white font-semibold shadow-lg hover:scale-110 transition-transform duration-300">
+                See Detail
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project Item 5 -->
+        <div
+          class="min-w-[250px] bg-purple-700 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="projct 5.png" alt="Gallery 5"
+            class="w-full h-40 object-cover hover:scale-110 transition-transform duration-500">
+          <div class="p-4 text-white">
+            <p class="mb-4">Landing page promoting a music album release.</p>
+            <a href="tgs4/index.html.html">
+              <button
+                class="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white font-semibold shadow-lg hover:scale-110 transition-transform duration-300">
+                See Detail
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="min-w-[250px] bg-purple-700 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-500">
+          <img src="Screenshot 2025-05-22 204851.png" alt="Gallery 5"
+            class="w-full h-40 object-cover hover:scale-110 transition-transform duration-500">
+          <div class="p-4 text-white">
+            <p class="mb-4">Landing page promoting a music album release.</p>
+            <a href="Febuari Semester 2/index.html">
+              <button
+                class="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white font-semibold shadow-lg hover:scale-110 transition-transform duration-300">
+                See Detail
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+<br>
+<br>
+    <!-- Testimonials Section -->
+    <section id="Testimonials" class="w-full max-w-4xl mx-auto py-20 px-4 text-black" x-data="testimonialApp()">
+
+      <div class="max-w-2xl mx-auto px-4 py-12">
+        <!-- Judul -->
+        <h2 class="text-3xl font-bold text-center text-white mb-6">Testimonials</h2>
+
+        <!-- Kotak daftar testimonial dengan scroll -->
+        <div id="testimonial-list"
+          class="space-y-4 bg-gray-100 p-4 rounded-lg mb-6 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-purple-400">
+          <!-- Testimonial akan masuk di sini -->
+        </div>
+
+        <!-- Tombol tambah -->
+        <div class="flex justify-center">
+          <button
+            class="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white font-semibold shadow-lg hover:scale-110 transition transform duration-300">
+            plus
+          </button>
+        </div>
+
+        <!-- Formulir -->
+        <form id="testimonial-form" class="space-y-4 mt-6 hidden">
+          <input type="text" id="name" placeholder="Nama" required
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400" />
+          <textarea id="comment" placeholder="Komentar" required
+            class="w-full border border-gray-300 rounded-md px-4 py-2 h-24 focus:outline-none focus:ring-2 focus:ring-purple-400"></textarea>
+          <input type="number" id="rating" placeholder="Rating (1-5)" min="1" max="5" required
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400" />
+          <button type="submit" class="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white font-semibold shadow-lg hover:scale-110 transition transform duration-300">
+            Kirim
+          </button>
+        </form>
+      </div>
+    </section>
+<br>
+    <section id="Contact" class="bg-gradient-to-br from-purple-700 to-purple-500 text-white py-12 px-4 rounded-2xl shadow-lg max-w-5xl mx-auto mt-10">
+      <h2 class="text-4xl font-bold text-left mb-10">Contact</h2>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+
+        <!-- Info Kontak -->
+        <div class="space-y-6 w-full md:w-1/2">
+          <div class="flex items-center space-x-4">
+            <span class="text-3xl">📍</span>
+            <p class="text-lg font-medium">Jl. Lurek Manunggal</p>
+          </div>
+          <div class="flex items-center space-x-4">
+            <span class="text-3xl">📞</span>
+            <p class="text-lg font-medium">+62 858-6716-5207</p>
+          </div>
+          <div class="flex items-center space-x-4">
+            <span class="text-3xl">✉️</span>
+            <p class="text-lg font-medium">Kontak@websitevitaa</p>
+          </div>
+
+          <hr class="border-white/30 my-4" />
+        </div>
+
+        <!-- Google Maps -->
+        <div class="w-full md:w-1/2">
+          <iframe src="https://www.google.com/maps?q=Jl.+Lurek+Manunggal&output=embed" width="100%" height="250"
+            class="rounded-xl border-2 border-white/30 shadow-lg" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+    </br>
+    </br>
+<br>
+    <footer class="bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-600 text-white py-10">
+      <div class="container mx-auto px-6 sm:px-12 lg:px-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- About Section -->
+          <div>
+            <h3 class="text-xl font-semibold mb-4">About Me</h3>
+            <p class="text-sm">I'm a passionate web developer who creates modern and interactive websites. Explore my
+              portfolio and get in touch!</p>
+          </div>
+          <!-- Quick Links Section -->
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+            <ul>
+              <li><a href="#home" class="hover:text-indigo-300">Home</a></li>
+              <li><a href="#about" class="hover:text-indigo-300">About</a></li>
+              <li><a href="#skills" class="hover:text-indigo-300">Skills</a></li>
+              <li><a href="#gallery" class="hover:text-indigo-300">Gallery</a></li>
+              <li><a href="#contact" class="hover:text-indigo-300">Contact</a></li>
+            </ul>
+          </div>
+          <!-- Social Media Section -->
+          <div>
+            <div class="flex flex-col items-center text-center">
+              <h3 class="text-xl font-semibold mb-4">Follow Me</h3>
+              <div class="flex flex-col space-y-4 items-center mt-4">
+                <a href="https://www.instagram.com/vitaa.taaa_?igsh=bThrbXc5bG92OHV6" title="Instagram" target="_blank"
+                  onclick="showNotification('Menuju Instagram')"
+                  class="hover:text-purple-500 transition-transform hover:scale-125 float-anim delay-100">
+                  <i class="ph ph-instagram-logo rotate-slow text-2xl"></i>
+                </a>
+                <a href="https://youtube.com/@vitarahmawati1900?si=5Uw6y8nyavRT1yuU" title="YouTube" target="_blank"
+                  onclick="showNotification('Buka YouTube')"
+                  class="hover:text-purple-500 transition-transform hover:scale-125 float-anim delay-200">
+                  <i class="ph ph-youtube-logo rotate-slow text-2xl"></i>
+                </a>
+                <a href="https://www.tiktok.com/@vitanwrh_?_t=ZS-8vxqdrdUkFE&_r=1" title="TikTok" target="_blank"
+                  onclick="showNotification('Menuju TikTok')"
+                  class="hover:text-purple-500 transition-transform hover:scale-125 float-anim delay-300">
+                  <i class="ph ph-tiktok-logo rotate-slow text-2xl"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Contact Section -->
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Contact</h3>
+            <p class="text-sm">Email: example@email.com</p>
+            <p class="text-sm">Phone: +123 456 7890</p>
+          </div>
+        </div>
+        <div class="mt-10 border-t border-gray-700 pt-6 text-center">
+          <p class="text-sm">©VNR.All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Parallax Hero Effect
+      const codingImage = document.getElementById('codingImage');
+      const heroSection = document.querySelector('section');
+
+      if (codingImage && heroSection) {
+        heroSection.addEventListener('mousemove', (e) => {
+          const rect = heroSection.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          const moveX = (x - rect.width / 2) * 0.02;
+          const moveY = (y - rect.height / 2) * 0.02;
+
+          codingImage.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
+        });
+
+        heroSection.addEventListener('mouseleave', () => {
+          codingImage.style.transform = 'translate(0, 0) scale(1)';
+        });
+      }
+
+      // Testimonials Logic
+      const plusButton = document.querySelector('#Testimonials button');
+      const form = document.getElementById('testimonial-form');
+      const list = document.getElementById('testimonial-list');
+
+      if (plusButton && form && list) {
+        plusButton.addEventListener('click', () => {
+          form.classList.toggle('hidden');
+        });
+
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const name = document.getElementById('name').value.trim();
+          const comment = document.getElementById('comment').value.trim();
+          const rating = document.getElementById('rating').value;
+
+          if (!name || !comment || !rating) {
+            alert('Please fill out all fields.');
+            return;
+          }
+
+          const newTestimonial = document.createElement('div');
+          newTestimonial.className = 'flex items-start gap-4 bg-white p-4 rounded shadow';
+
+          newTestimonial.innerHTML = `
+          <img src="prifil.png" alt="${name}" class="w-12 h-12 rounded-full object-cover">
+          <div>
+            <h4 class="font-semibold text-purple-700">${name}</h4>
+            <p class="text-gray-700">${comment}</p>
+            <p class="text-yellow-500">Rating: ${'⭐'.repeat(rating)}</p>
+          </div>
+        `;
+
+          list.prepend(newTestimonial);
+          form.reset();
+          form.classList.add('hidden');
+
+          alert('Testimonial successfully submitted!');
+        });
+      } else {
+        console.warn('Some testimonial elements not found.');
+      }
+    });
+
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const loading = document.getElementById('loadingScreen');
+        loading.classList.add("blur");
+
+        setTimeout(() => {
+          loading.style.display = 'none'; // Sembunyikan loading screen
+          document.getElementById('mainContent').style.display = 'block'; // Tampilkan konten utama
+        }, 900);
+
+      }, 4000); // Tunggu 4 detik
+    });
+  </script>
+
+</body>
+
+</html>
